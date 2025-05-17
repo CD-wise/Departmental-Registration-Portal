@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Financial Officer Dashboard - COMPSSA Registration</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="financial-dashboard.css">
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo-title">
+            <img src="images/compssa.png" alt="COMPSSA Logo" class="logo">
+            <h1>Financial Officer Dashboard</h1>
+        </div>
+        <div class="user-controls">
+            <span id="userEmail"></span>
+            <button class="btn" id="logoutBtn" type="button">Logout</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="dashboard-controls">
+            <div class="filters">
+                <select class="filter-control" id="programmeFilter" aria-label="Filter by programme">
+                    <option value="">All programmes</option>
+                    <option value="Computer Science">Computer Science</option>
+                    <option value="Cybersecurity">Cybersecurity</option>
+                    <option value="IT">Diploma In IT</option>
+                <option value="pre">Pre-HND In IT</option>
+                </select>
+
+                <select class="filter-control" id="statusFilter" aria-label="Filter by status">
+                    <option value="">All Statuses</option>
+                    <option value="pending">Pending</option>
+                    <option value="validated">Validated</option>
+                    <option value="disputed">Disputed</option>
+                </select>
+
+                <input type="date" class="filter-control" id="dateFilter" aria-label="Filter by date">
+            </div>
+
+            <button class="btn" id="exportBtn" type="button">Export Report</button>
+        </div>
+
+        <div id="financialSummary" class="summary-container" aria-live="polite">
+            <!-- Summary cards will be inserted here -->
+        </div>
+
+        <div class="card">
+            <h2>Payment Validations</h2>
+            <div class="table-responsive">
+                <table id="financialTable">
+                    <thead>
+                        <tr>
+                            <th scope="col">programme</th>
+                            <th scope="col">Program Level</th>
+                            <th scope="col">Student Name</th>
+                            <th scope="col">Student ID</th>
+                            <th scope="col">Amount</th>
+                            <th scope="col">Payment Method</th>
+                            <th scope="col">Registration Date</th>
+                            <th scope="col">Collected By</th>
+                            <th scope="col">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Table content will be dynamically inserted -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load Firebase scripts with specific versions and defer -->
+    <script defer src="https://www.gstatic.com/firebasejs/11.1.0/firebase-app-compat.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore-compat.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/11.1.0/firebase-auth-compat.js"></script>
+    <script defer src="financial-dashboard.js"></script>
+</body>
+
+</html>
